@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Yuvi With Love ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#ffe6ee;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  width:90%;
+  max-width:380px;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+  z-index:2;
+}
+
+h1{color:#c2185b;}
+
+#text{
+  font-size:16px;
+  min-height:120px;
+  color:#444;
+}
+
+.heart{
+  position:absolute;
+  color:rgba(255,0,80,0.6);
+  animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+  from{top:-10%;}
+  to{top:110%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Yuvi ❤️</h1>
+  <div id="text"></div>
+</div>
+
+<script>
+const message =
+"My dearest Yuvi,\n\n" +
+"Even from miles away, my heart finds you.\n\n" +
+"Every beat whispers your name.\n" +
+"I choose you, always.\n\n" +
+"Happy Valentine’s Day ❤️\n\n" +
+"— Yours forever";
+
+let i = 0;
+function type(){
+  if(i < message.length){
+    document.getElementById("text").innerHTML +=
+      message[i] === "\n" ? "<br>" : message[i];
+    i++;
+    setTimeout(type, 40);
+  }
+}
+type();
+
+function heart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*20)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,300);
+</script>
+
+</body>
+</html>
